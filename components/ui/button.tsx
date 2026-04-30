@@ -16,6 +16,10 @@ const buttonVariants = cva(
           'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50',
         secondary:
           'bg-secondary text-secondary-foreground hover:bg-secondary/80',
+        orange:
+          'bg-accent-orange text-white shadow-[0_2px_10px_-3px_rgba(249,115,22,0.3)] hover:bg-accent-orange/90 focus-visible:ring-accent-orange/20 dark:focus-visible:ring-accent-orange/40',
+        'orange-outline':
+          'border border-accent-orange text-accent-orange bg-transparent hover:bg-accent-orange/10 dark:hover:bg-accent-orange/10',
         ghost:
           'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
         link: 'text-primary underline-offset-4 hover:underline',

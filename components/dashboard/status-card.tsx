@@ -10,6 +10,7 @@ interface StatusCardProps {
     value: number;
     isPositive: boolean;
   };
+  accentColor?: 'blue' | 'orange';
   className?: string;
 }
 
@@ -19,13 +20,19 @@ export function StatusCard({
   value,
   unit,
   change,
+  accentColor = 'blue',
   className
 }: StatusCardProps) {
+  const isOrange = accentColor === 'orange';
+  const accentClass = isOrange ? 'bg-accent-orange' : 'bg-primary';
+  const accentBgClass = isOrange ? 'bg-accent-orange/10' : 'bg-primary/10';
+  const borderHoverClass = isOrange ? 'hover:border-accent-orange/50' : 'hover:border-primary/50';
+  
   return (
     <div
       className={cn(
         'relative overflow-hidden rounded-lg bg-card border border-border p-6',
-        'transition-all duration-300 hover:border-primary/50 hover:shadow-lg',
+        `transition-all duration-300 ${borderHoverClass} hover:shadow-lg`,
         'group shadow-card',
         className
       )}
@@ -34,15 +41,17 @@ export function StatusCard({
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity pointer-events-none"
         style={{
-          background: 'linear-gradient(135deg, #3B82F6 0%, #6366F1 100%)'
+          background: isOrange 
+            ? 'linear-gradient(135deg, #F97316 0%, #FB923C 100%)'
+            : 'linear-gradient(135deg, #3B82F6 0%, #6366F1 100%)'
         }}
       />
 
       <div className="relative z-10">
         {/* Icon and title */}
         <div className="flex items-start justify-between mb-4">
-          <div className="p-3 rounded-lg bg-primary/10">
-            <Icon className="text-primary" size={24} />
+          <div className={`p-3 rounded-lg ${accentBgClass}`}>
+            <Icon className={`text-${isOrange ? 'accent-orange' : 'primary'}`} size={24} />
           </div>
           {change && (
             <div

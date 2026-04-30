@@ -78,6 +78,7 @@ export default function DashboardPage() {
           title="Active Deployments"
           value={24}
           change={{ value: 12, isPositive: true }}
+          accentColor="blue"
         />
         <StatusCard
           icon={Cpu}
@@ -85,6 +86,7 @@ export default function DashboardPage() {
           value={42}
           unit="%"
           change={{ value: 8, isPositive: false }}
+          accentColor="orange"
         />
         <StatusCard
           icon={HardDrive}
@@ -92,12 +94,14 @@ export default function DashboardPage() {
           value={847}
           unit="GB"
           change={{ value: 5, isPositive: true }}
+          accentColor="blue"
         />
         <StatusCard
           icon={AlertTriangle}
           title="Active Alerts"
           value={3}
           change={{ value: 2, isPositive: false }}
+          accentColor="orange"
         />
       </div>
 
@@ -182,7 +186,7 @@ export default function DashboardPage() {
               <h2 className="text-xl font-semibold text-foreground">Recent Deployments</h2>
               <p className="text-base text-muted-foreground mt-2">Your latest deployments and their status</p>
             </div>
-            <button className="px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium transition-all hover:shadow-card">
+            <button className="px-4 py-2 rounded-lg bg-accent-orange text-white font-medium transition-all hover:bg-accent-orange/90 shadow-[0_2px_10px_-3px_rgba(249,115,22,0.3)]">
               View All
             </button>
           </div>
@@ -195,14 +199,14 @@ export default function DashboardPage() {
         <h2 className="text-xl font-semibold text-foreground mb-6">Recent Activity</h2>
         <div className="space-y-4">
           {[
-            { time: '2 minutes ago', action: 'Deployment completed', detail: 'Frontend App v2.3.1 deployed to 3 servers' },
-            { time: '1 hour ago', action: 'Alert resolved', detail: 'High CPU usage alert resolved on server-12' },
-            { time: '3 hours ago', action: 'Scaling triggered', detail: 'Auto-scaling increased instances from 8 to 12' },
-            { time: '5 hours ago', action: 'Database backup', detail: 'Automated backup completed successfully' },
+            { time: '2 minutes ago', action: 'Deployment completed', detail: 'Frontend App v2.3.1 deployed to 3 servers', highlight: true },
+            { time: '1 hour ago', action: 'Alert resolved', detail: 'High CPU usage alert resolved on server-12', highlight: false },
+            { time: '3 hours ago', action: 'Scaling triggered', detail: 'Auto-scaling increased instances from 8 to 12', highlight: false },
+            { time: '5 hours ago', action: 'Database backup', detail: 'Automated backup completed successfully', highlight: false },
           ].map((item, i) => (
             <div key={i} className="flex gap-4 pb-4 border-b border-border last:border-0 last:pb-0">
               <div className="flex flex-col items-center">
-                <div className="w-3 h-3 rounded-full bg-primary mt-1.5" />
+                <div className={`w-3 h-3 rounded-full mt-1.5 ${item.highlight ? 'bg-accent-orange' : 'bg-primary'}`} />
                 {i < 3 && <div className="w-0.5 h-12 bg-border mt-2" />}
               </div>
               <div className="flex-1 pt-0.5">

@@ -90,7 +90,7 @@ export function DeploymentsListTable() {
           href={`/dashboard/deployments/${deployment.id}`}
           className="block"
         >
-          <div className="bg-card border border-border rounded-lg p-4 sm:p-6 shadow-card cursor-pointer transition-all hover:border-primary/50 hover:shadow-card hover:scale-[1.01] w-full min-w-0">
+          <div className={`bg-card border rounded-lg p-4 sm:p-6 shadow-card cursor-pointer transition-all hover:shadow-card hover:scale-[1.01] w-full min-w-0 ${deployment.status === 'failed' ? 'border-accent-orange/30 hover:border-accent-orange/50' : 'border-border hover:border-primary/50'}`}>
             <div className="flex items-start sm:items-center justify-between gap-2 w-full min-w-0">
               <div className="flex-1 space-y-4 w-full min-w-0">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between sm:mr-6 gap-3 sm:gap-0 w-full min-w-0">
@@ -106,7 +106,7 @@ export function DeploymentsListTable() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 min-w-0">
                   <div className="min-w-0">
                     <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Pipeline</p>
-                    <p className="text-sm font-medium truncate" style={{ color: '#D97706' }}>{deployment.pipeline}</p>
+                    <p className="text-sm font-medium truncate text-accent-orange">{deployment.pipeline}</p>
                   </div>
                   <div className="min-w-0">
                     <p className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Tasks</p>

@@ -100,9 +100,9 @@ export function Sidebar() {
                 href={item.href}
                 onClick={() => setIsOpen(false)}
                 className={cn(
-                  'flex items-center gap-3 px-4 py-2.5 rounded-md transition-all duration-200 text-sm font-medium',
+                  'flex items-center gap-3 px-4 py-2.5 rounded-md transition-all duration-200 text-sm font-medium relative',
                   isActive
-                    ? 'bg-sidebar-primary text-sidebar-primary-foreground shadow-card'
+                    ? 'bg-sidebar-primary text-sidebar-primary-foreground shadow-card after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-accent-orange after:rounded-full'
                     : 'text-sidebar-foreground hover:bg-sidebar-accent/15'
                 )}
               >
@@ -115,12 +115,12 @@ export function Sidebar() {
 
         {/* Footer section */}
         <div className="p-4 border-t border-sidebar-border space-y-2">
-          <div className="px-4 py-3 rounded-lg bg-sidebar-accent/10 border border-sidebar-border">
+          <div className="px-4 py-3 rounded-lg bg-accent-orange/10 border border-accent-orange/20">
             <p className="text-xs text-sidebar-foreground/70 font-medium">Usage</p>
             <p className="text-sm font-bold text-sidebar-foreground mt-1">45% of quota</p>
             <div className="w-full bg-sidebar-border rounded-full h-1.5 mt-2">
               <div 
-                className="h-1.5 rounded-full gradient-blue-purple"
+                className="h-1.5 rounded-full bg-accent-orange"
                 style={{ width: '45%' }}
               />
             </div>

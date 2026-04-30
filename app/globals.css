@@ -18,6 +18,8 @@
   --muted-foreground: #94A3B8;
   --accent: #3B82F6;
   --accent-foreground: #FFFFFF;
+  --accent-orange: #F97316;
+  --accent-orange-light: #FB923C;
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
   --border: #1E293B;
@@ -60,6 +62,8 @@
   --muted-foreground: #94A3B8;
   --accent: #3B82F6;
   --accent-foreground: #FFFFFF;
+  --accent-orange: #F97316;
+  --accent-orange-light: #FB923C;
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
   --border: #1E293B;
@@ -101,6 +105,8 @@
   --muted-foreground: #64748B;
   --accent: #2563EB;
   --accent-foreground: #FFFFFF;
+  --accent-orange: #EA580C;
+  --accent-orange-light: #F97316;
   --destructive: #DC2626;
   --destructive-foreground: #FFFFFF;
   --border: #E2E8F0;
@@ -144,6 +150,8 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-accent-orange: var(--accent-orange);
+  --color-accent-orange-light: var(--accent-orange-light);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
@@ -227,6 +235,32 @@
   
   .gradient-blue-purple-hover {
     background: linear-gradient(135deg, #2563EB 0%, #4F46E5 100%);
+  }
+  
+  /* Orange accent gradients for CTAs and highlights */
+  .gradient-blue-orange {
+    background: linear-gradient(135deg, #3B82F6 0%, #F97316 100%);
+  }
+  
+  .gradient-blue-orange-light {
+    background: linear-gradient(135deg, #3B82F6 0%, #FB923C 100%);
+  }
+  
+  /* Orange accent utilities */
+  .text-accent-orange {
+    color: var(--accent-orange);
+  }
+  
+  .bg-accent-orange-10 {
+    background-color: rgba(249, 115, 22, 0.1);
+  }
+  
+  .bg-accent-orange-15 {
+    background-color: rgba(249, 115, 22, 0.15);
+  }
+  
+  .border-accent-orange {
+    border-color: var(--accent-orange);
   }
   
   /* Glass morphism effect for premium feel */
